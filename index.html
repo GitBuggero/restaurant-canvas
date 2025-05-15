@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Delicious bites</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+<button id="scrollToTopBtn" class="fixed bottom-6 right-6 bg-red-500 text-white px-4 py-2 rounded-full shadow-lg hidden hover:bg-red-600 transition">
+↑ Top
+</button>
+
+<header class="bg-red-500 text-white shadow-md">
+<div class="container mx-auto px-4 py-4 flex justify-between items-center">
+<h1 class="text-xl font-bold">Delicious Bites</h1>
+<nav class="space-x-4">
+<a href="#home" class="hover:underline">Home</a>
+<a href="#foods" class="hover:underline">Foods</a>
+<a href="#faq" class="hover:underline">FAQ</a>
+</nav>
+</div>
+</header>
+
+<section id="home" class="bg-gradient-to-r from-yellow-200 to-red-200 py-16">
+<div class="container mx-auto px-4 text-center">
+<h2 class="text-4xl font-bold mb-4">Explore Tasty World Cuisine</h2>
+<p class="text-lg">From spicy street food to gourmet dishes, we have something for everyone!</p>
+</div>
+</section>
+
+<section id="featured" class="py-16 bg-yellow-50">
+<div class="container mx-auto px-4 text-center">
+<h3 class="text-3xl font-bold mb-4">🍽️ Today's Featured Dish</h3>
+<p id="featuredText" class="text-lg text-gray-700"></p>
+</div>
+</section>
+
+<section id="foods" class="py-16">
+<div class="container mx-auto px-4">
+<h3 class="text-3xl font-bold mb-8 text-center">Our Favorite Dishes</h3>
+<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+<div class="bg-white shadow-lg rounded-lg overflow-hidden">
+<img src="pizza.jpg" class="w-full h-48 object-cover">
+<div class="p-4">
+<h4 class="text-xl font-semibold mb-2">Pizza</h4>
+<p>Cheesy, crusty, and loaded with toppings. A timeless Italian favorite.</p>
+</div>
+</div>
+<div class="bg-white shadow-lg rounded-lg overflow-hidden">
+<img src="sushi.jpg" class="w-full h-48 object-cover">
+<div class="p-4">
+<h4 class="text-xl font-semibold mb-2">Sushi</h4>
+<p>Fresh, delicate, and beautifully crafted. A taste of Japan on every plate.</p>
+</div>
+</div>
+<div class="bg-white shadow-lg rounded-lg overflow-hidden">
+<img src="taco.jpg" class="w-full h-48 object-cover">
+<div class="p-4">
+<h4 class="text-xl font-semibold mb-2">Tacos</h4>
+<p>Spicy and vibrant, tacos bring the heart of Mexican cuisine to your hand.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="faq" class="bg-gray-100 py-16">
+<div class="container mx-auto px-4">
+<h3 class="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h3>
+<div class="space-y-6 max-w-2xl mx-auto">
+<div>
+<h4 class="font-semibold text-lg">Do you offer vegetarian options?</h4>
+<p>Yes! We have a wide variety of delicious vegetarian meals from all over the world.</p>
+</div>
+<div>
+<h4 class="font-semibold text-lg">Can I order online?</h4>
+<p>We're working on integrating online ordering soon. Stay tuned!</p>
+</div>
+<div>
+<h4 class="font-semibold text-lg">Where do you source your ingredients?</h4>
+<p>We prioritize fresh, locally sourced ingredients whenever possible.</p>
+</div>
+</div>
+</div>
+</section>
+
+<footer class="bg-red-500 text-white py-6">
+<div class="container mx-auto px-4 text-center">
+<p>&copy; Delicious Bites :P</p>
+</div>
+</footer>
+<script>
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+window.addEventListener("scroll", () => {
+scrollToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+});
+scrollToTopBtn.addEventListener("click", () => {
+window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+const featuredText = document.getElementById("featuredText");
+const dishes = [
+"Try our spicy Korean Bibimbap – a bowl of bold flavors!",
+"Don’t miss the creamy Butter Chicken served with naan!",
+"Experience the crunch of Vietnamese Spring Rolls!",
+"Indulge in the French Ratatouille — veggie heaven!",
+"Savor the richness of Moroccan Tagine!"
+];
+featuredText.textContent = dishes[Math.floor(Math.random() * dishes.length)];
+</script>
+</body>
+</html>
