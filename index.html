@@ -6,10 +6,9 @@
 <title>Delicious bites</title>
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-white text-gray-800 font-sans">
-<button id="scrollToTopBtn" class="fixed bottom-6 right-6 bg-red-500 text-white px-4 py-2 rounded-full shadow-lg hidden hover:bg-red-600 transition">
-↑ Top
-</button>
+<body class="bg-white text-gray-800 font-sans transition-colors duration-300" id="body">
+<button id="topButton" class="fixed bottom-6 right-6 bg-red-500 text-white px-4 py-2 rounded-full shadow-lg hidden hover:bg-red-600 transition">↑ Top</button>
+<button id="darkModeToggle" class="fixed bottom-6 left-6 bg-gray-800 text-white px-4 py-2 rounded-full shadow-lg hover:bg-gray-700 transition">Dark Mode</button>
 
 <header class="bg-red-500 text-white shadow-md">
 <div class="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -33,6 +32,13 @@
 <div class="container mx-auto px-4 text-center">
 <h3 class="text-3xl font-bold mb-4">🍽️ Today's Featured Dish</h3>
 <p id="featuredText" class="text-lg text-gray-700"></p>
+</div>
+</section>
+
+<section id="testimonial" class="py-16 bg-gray-50">
+<div class="container mx-auto px-4 text-center">
+<h3 class="text-3xl font-bold mb-4">💬 What Our Customers Say</h3>
+<p id="testimonialText" class="text-lg text-gray-600 max-w-xl mx-auto"></p>
 </div>
 </section>
 
@@ -90,8 +96,9 @@
 <p>&copy; Delicious Bites :P</p>
 </div>
 </footer>
+
 <script>
-const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+const scrollToTopBtn = document.getElementById("topButton");
 window.addEventListener("scroll", () => {
 scrollToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
 });
@@ -108,6 +115,39 @@ const dishes = [
 "Savor the richness of Moroccan Tagine!"
 ];
 featuredText.textContent = dishes[Math.floor(Math.random() * dishes.length)];
+
+const testimonialText = document.getElementById("testimonialText");
+const testimonials = [
+"“Absolutely loved the flavors — the sushi was divine!” – Rina K.",
+"“Fast service, fresh food, and great vibes!” – Daniel M.",
+"“The tacos reminded me of my trip to Mexico!” – Priya S.",
+"“Every bite was a celebration of flavor!” – Alex J.",
+"“Delicious Bites lives up to its name. 5 stars!” – Maya L."
+];
+let tIndex = 0;
+function rotateTestimonial() {
+testimonialText.textContent = testimonials[tIndex];
+tIndex = (tIndex + 1) % testimonials.length;
+}
+rotateTestimonial();
+setInterval(rotateTestimonial, 5000);
+
+const darkToggle = document.getElementById("darkModeToggle");
+const body = document.getElementById("body");
+let darkMode = false;
+
+darkToggle.addEventListener("click", () => {
+darkMode = !darkMode;
+if (darkMode) {
+body.classList.add("bg-gray-900");
+body.classList.remove("bg-white", "text-gray-800");
+darkToggle.textContent = "Light Mode";
+} else {
+body.classList.remove("bg-gray-900", "text-white");
+body.classList.add("bg-white", "text-gray-800");
+darkToggle.textContent = "Dark Mode";
+}
+});
 </script>
 </body>
 </html>
