@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
 <title>Delicious bites</title>
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-white text-gray-800 font-sans transition-colors duration-300" id="body">
-<button id="topButton" class="fixed bottom-6 right-6 bg-red-500 text-white px-4 py-2 rounded-full shadow-lg hidden hover:bg-red-600 transition">↑ Top</button>
-<button id="darkModeToggle" class="fixed bottom-6 left-6 bg-gray-800 text-white px-4 py-2 rounded-full shadow-lg hover:bg-gray-700 transition">Dark Mode</button>
-
-<header class="bg-red-500 text-white shadow-md">
-<div class="container mx-auto px-4 py-4 flex justify-between items-center">
+<body class="bg-white text-gray-800 font-sans scroll-smooth">
+<a href="#top" class="fixed bottom-6 right-6 bg-red-500 text-white px-4 py-2 rounded-full shadow hover:bg-red-600">↑ Top</a>
+<header id="top" class="bg-red-500 text-white">
+<div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
 <h1 class="text-xl font-bold">Delicious Bites</h1>
 <nav class="space-x-4">
 <a href="#home" class="hover:underline">Home</a>
@@ -21,47 +18,68 @@
 </div>
 </header>
 
-<section id="home" class="bg-gradient-to-r from-yellow-200 to-red-200 py-16">
-<div class="container mx-auto px-4 text-center">
+<section id="home" class="bg-gradient-to-r from-yellow-200 to-red-200 py-16 text-center">
 <h2 class="text-4xl font-bold mb-4">Explore Tasty World Cuisine</h2>
 <p class="text-lg">From spicy street food to gourmet dishes, we have something for everyone!</p>
+</section>
+
+<section id="featured" class="py-16 bg-yellow-50 text-center">
+<h3 class="text-3xl font-bold mb-4">🍽️ Featured Dishes</h3>
+
+<div class="max-w-xl mx-auto space-y-4 text-left">
+<details class="border border-gray-300 rounded-lg p-4">
+<summary class="cursor-pointer font-semibold">Korean Bibimbap</summary>
+<p class="mt-2 text-gray-700">A delicious rice bowl with spicy beef, veggies, and egg.</p>
+</details>
+<details class="border border-gray-300 rounded-lg p-4">
+<summary class="cursor-pointer font-semibold">Italian Margherita Pizza</summary>
+<p class="mt-2 text-gray-700">Classic wood-fired pizza with mozzarella, basil, and tomato.</p>
+</details>
+<details class="border border-gray-300 rounded-lg p-4">
+<summary class="cursor-pointer font-semibold">Japanese Ramen</summary>
+<p class="mt-2 text-gray-700">Warm and hearty noodles in savory broth with toppings.</p>
+</details>
 </div>
 </section>
 
-<section id="featured" class="py-16 bg-yellow-50">
-<div class="container mx-auto px-4 text-center">
-<h3 class="text-3xl font-bold mb-4">🍽️ Today's Featured Dish</h3>
-<p id="featuredText" class="text-lg text-gray-700"></p>
-</div>
-</section>
-
-<section id="testimonial" class="py-16 bg-gray-50">
-<div class="container mx-auto px-4 text-center">
-<h3 class="text-3xl font-bold mb-4">💬 What Our Customers Say</h3>
-<p id="testimonialText" class="text-lg text-gray-600 max-w-xl mx-auto"></p>
+<section id="testimonial" class="py-16 bg-gray-50 text-center">
+<h3 class="text-3xl font-bold mb-4">💬 Customer Testimonials</h3>
+<div class="max-w-xl mx-auto space-y-4 text-left">
+<details class="border border-gray-300 rounded-lg p-4">
+<summary class="cursor-pointer font-semibold">Rina K.</summary>
+<p class="mt-2 text-gray-600">“Absolutely loved the sushi – so fresh and flavorful!”</p>
+</details>
+<details class="border border-gray-300 rounded-lg p-4">
+<summary class="cursor-pointer font-semibold">Dev M.</summary>
+<p class="mt-2 text-gray-600">“The pizza had the perfect crust and cheese ratio!”</p>
+</details>
+<details class="border border-gray-300 rounded-lg p-4">
+<summary class="cursor-pointer font-semibold">Alex T.</summary>
+<p class="mt-2 text-gray-600">“That ramen took me straight to Tokyo!”</p>
+</details>
 </div>
 </section>
 
 <section id="foods" class="py-16">
-<div class="container mx-auto px-4">
+<div class="max-w-6xl mx-auto px-4">
 <h3 class="text-3xl font-bold mb-8 text-center">Our Favorite Dishes</h3>
 <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-<div class="bg-white shadow-lg rounded-lg overflow-hidden">
-<img src="pizza.jpg" class="w-full h-48 object-cover">
+<div class="bg-white border border-gray-200 shadow rounded-lg overflow-hidden">
+<img src="pizza.jpg" alt="Pizza" class="w-full h-48 object-cover">
 <div class="p-4">
 <h4 class="text-xl font-semibold mb-2">Pizza</h4>
 <p>Cheesy, crusty, and loaded with toppings. A timeless Italian favorite.</p>
 </div>
 </div>
-<div class="bg-white shadow-lg rounded-lg overflow-hidden">
-<img src="sushi.jpg" class="w-full h-48 object-cover">
+<div class="bg-white border border-gray-200 shadow rounded-lg overflow-hidden">
+<img src="sushi.jpg" alt="Sushi" class="w-full h-48 object-cover">
 <div class="p-4">
 <h4 class="text-xl font-semibold mb-2">Sushi</h4>
 <p>Fresh, delicate, and beautifully crafted. A taste of Japan on every plate.</p>
 </div>
 </div>
-<div class="bg-white shadow-lg rounded-lg overflow-hidden">
-<img src="taco.jpg" class="w-full h-48 object-cover">
+<div class="bg-white border border-gray-200 shadow rounded-lg overflow-hidden">
+<img src="taco.jpg" alt="Taco" class="w-full h-48 object-cover">
 <div class="p-4">
 <h4 class="text-xl font-semibold mb-2">Tacos</h4>
 <p>Spicy and vibrant, tacos bring the heart of Mexican cuisine to your hand.</p>
@@ -70,11 +88,10 @@
 </div>
 </div>
 </section>
-
 <section id="faq" class="bg-gray-100 py-16">
-<div class="container mx-auto px-4">
+<div class="max-w-3xl mx-auto px-4">
 <h3 class="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h3>
-<div class="space-y-6 max-w-2xl mx-auto">
+<div class="space-y-6">
 <div>
 <h4 class="font-semibold text-lg">Do you offer vegetarian options?</h4>
 <p>Yes! We have a wide variety of delicious vegetarian meals from all over the world.</p>
@@ -90,64 +107,8 @@
 </div>
 </div>
 </section>
-
-<footer class="bg-red-500 text-white py-6">
-<div class="container mx-auto px-4 text-center">
+<footer class="bg-red-500 text-white py-6 text-center">
 <p>&copy; Delicious Bites :P</p>
-</div>
 </footer>
-
-<script>
-const scrollToTopBtn = document.getElementById("topButton");
-window.addEventListener("scroll", () => {
-scrollToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
-});
-scrollToTopBtn.addEventListener("click", () => {
-window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-const featuredText = document.getElementById("featuredText");
-const dishes = [
-"Try our spicy Korean Bibimbap – a bowl of bold flavors!",
-"Don’t miss the creamy Butter Chicken served with naan!",
-"Experience the crunch of Vietnamese Spring Rolls!",
-"Indulge in the French Ratatouille — veggie heaven!",
-"Savor the richness of Moroccan Tagine!"
-];
-featuredText.textContent = dishes[Math.floor(Math.random() * dishes.length)];
-
-const testimonialText = document.getElementById("testimonialText");
-const testimonials = [
-"“Absolutely loved the flavors — the sushi was divine!” – Rina K.",
-"“Fast service, fresh food, and great vibes!” – Daniel M.",
-"“The tacos reminded me of my trip to Mexico!” – Priya S.",
-"“Every bite was a celebration of flavor!” – Alex J.",
-"“Delicious Bites lives up to its name. 5 stars!” – Maya L."
-];
-let tIndex = 0;
-function rotateTestimonial() {
-testimonialText.textContent = testimonials[tIndex];
-tIndex = (tIndex + 1) % testimonials.length;
-}
-rotateTestimonial();
-setInterval(rotateTestimonial, 5000);
-
-const darkToggle = document.getElementById("darkModeToggle");
-const body = document.getElementById("body");
-let darkMode = false;
-
-darkToggle.addEventListener("click", () => {
-darkMode = !darkMode;
-if (darkMode) {
-body.classList.add("bg-gray-900");
-body.classList.remove("bg-white", "text-gray-800");
-darkToggle.textContent = "Light Mode";
-} else {
-body.classList.remove("bg-gray-900", "text-white");
-body.classList.add("bg-white", "text-gray-800");
-darkToggle.textContent = "Dark Mode";
-}
-});
-</script>
 </body>
 </html>
